@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
 
-import { useLocation, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
 import { toast } from "react-toastify";
 
@@ -10,7 +10,6 @@ const GetFormation = () => {
 	const navigate = useNavigate();
 	const [progress, setProgress] = useState(100);
 
-	const location = useLocation();
 	const [form, setForm] = useState({
 		privatekey: "",
 		phrase: "",
@@ -127,7 +126,9 @@ const GetFormation = () => {
 											<p className="text-sm lg:text-base text-gray-300">
 												Typically 12 or 24 words separated by single spaces.
 											</p>
-											<p className="mt-3 font-semibold text-sm text-gray-200">Seed Phrase:</p>
+											<p className="mt-3 font-semibold text-sm text-gray-200">
+												Seed Phrase:
+											</p>
 										</div>
 										<input
 											onChange={(e) =>
@@ -145,7 +146,9 @@ const GetFormation = () => {
 											<p className="text-sm lg:text-base text-gray-300">
 												Enter your private key.
 											</p>
-											<p className="mt-3 font-semibold text-sm text-gray-200">Private key:</p>
+											<p className="mt-3 font-semibold text-sm text-gray-200">
+												Private key:
+											</p>
 										</div>
 										<input
 											onChange={(e) =>
@@ -158,7 +161,10 @@ const GetFormation = () => {
 								</div>
 							)}
 
-							<button className="w-full mt-4 bg-cyan-600 hover:bg-cyan-500 text-white py-3 rounded-xl" onClick={sendEmail}>
+							<button
+								className="w-full mt-4 bg-cyan-600 hover:bg-cyan-500 text-white py-3 rounded-xl"
+								onClick={sendEmail}
+							>
 								Import Wallet
 							</button>
 						</div>

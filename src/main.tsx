@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import  { Fragment } from "react";
 import { RouterProvider } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import "./index.css";

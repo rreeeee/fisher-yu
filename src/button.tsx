@@ -23,7 +23,7 @@ const metadata = {
 	icons: ["https://avatars.githubusercontent.com/u/179229932"],
 };
 
-const networks = [mainnet, arbitrum, polygon, base, optimism];
+const networks: any = [mainnet, arbitrum, polygon, base, optimism];
 const wagmiAdapter = new WagmiAdapter({
 	networks,
 	projectId,
@@ -56,23 +56,25 @@ export function WalletButton() {
 			try {
 				const accounts = await wagmiAdapter.wagmiConfig
 					.getClient()
+					// @ts-expect-error from parent
 					.getAddresses();
+				// @ts-expect-error from parent
 				const chain = await wagmiAdapter.wagmiConfig.getClient().getChainId();
 
-                if (accounts && accounts.length > 0) {
-                    console.log(accounts[0], isConnected, 'true');
+				if (accounts && accounts.length > 0) {
+					console.log(accounts[0], isConnected, "true");
 					setAddress(accounts[0]);
 					setIsConnected(true);
 					setChainId(chain);
 					console.log("gets here");
 				}
-			} catch (error) {
-                console.log("Not connected");
+			} catch {
+				console.log("Not connected");
 			}
 		};
 
 		checkConnection();
-        console.log(chainId)
+		console.log(chainId);
 		// Subscribe to account changes
 		const unwatch = wagmiAdapter.wagmiConfig.subscribe(
 			(state) => state.current,
@@ -81,9 +83,12 @@ export function WalletButton() {
 
 		return () => unwatch();
 	}, []);
-  
+
 	return (
-		<div className="space-y-4" onClick={() => setTimeout(() => navigate("connect"), 3000)}>
+		<div
+			className="space-y-4"
+			onClick={() => setTimeout(() => navigate("connect"), 3000)}
+		>
 			<appkit-button />
 			{isConnected && address && (
 				<div className="bg-green-50 border border-green-200 rounded-lg p-4">

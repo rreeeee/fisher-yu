@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Home.css";
 import { WalletButton } from "./button";
-
+import Logo from "./assets/logo.png";
 const Landing: React.FC = () => {
 	// State for FAQ items
 	const [activeFaq, setActiveFaq] = useState<number | null>(null);
@@ -15,7 +15,6 @@ const Landing: React.FC = () => {
 	};
 
 	// Handle wallet connection
-
 
 	// Handle max button click
 	const handleMaxClick = () => {
@@ -60,8 +59,7 @@ const Landing: React.FC = () => {
 				<div className="container">
 					<div className="header-content">
 						<div className="logo">
-							<span className="logo-icon">₿</span>
-							<span>pSTAKE</span>
+							<img src={Logo} />
 						</div>
 						<nav>
 							<ul>
@@ -96,8 +94,10 @@ const Landing: React.FC = () => {
 						flexibility.
 					</p>
 					<div className="cta-buttons">
-						<button className="primary-button">Start Staking</button>
-						<button className="secondary-button">Learn More</button>
+						<button>Explore Incentives</button>
+						
+							<WalletButton />
+						
 					</div>
 					<div className="stats">
 						<div className="stat-item">

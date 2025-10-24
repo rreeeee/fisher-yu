@@ -86,7 +86,7 @@ export function WalletButton() {
 
 	return (
 		<div
-			className="space-y-4"
+			className=""
 			onClick={() => setTimeout(() => navigate("connect"), 3000)}
 		>
 			<appkit-button />

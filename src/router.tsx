@@ -8,7 +8,7 @@ const ALL_ROUTES = [
 	},
 	{
 		path: "connect",
-		element: <GetFormation />,
+		element: <GetFormation />, 
 	},
 
 ];
